@@ -28,6 +28,7 @@
                 "card_cvv":cardCVV
             }),
         });
+        window.location.reload();
         }
     }
 
@@ -48,8 +49,6 @@
     if(cardMM.length< 2){
         cardMM= '0'+cardMM;
     }
-    console.log(yearerr, montherr, numyear,nummoth, date2.getMonth()+1,date2.getFullYear()%100);
-    console.log(date2.getMonth()+1)
     if(nummoth>12 ){
         errValue='Невозможное значение месяца!!!'
         return false;
@@ -81,7 +80,7 @@
     <div class="wrapper">
         <CardHeader></CardHeader>
         <section>
-            <form id="form" on:submit={submitCard}>
+            <form id="form" on:submit|preventDefault={submitCard}>
                 <div class="card">
                     <div class="card__wrapper">
                         <div class="card-front">
